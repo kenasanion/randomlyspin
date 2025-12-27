@@ -1,15 +1,21 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
+import useWheelSettings from '@/hooks/useWheelSettings'
 import { Disc3Icon, FerrisWheelIcon, PartyPopperIcon } from 'lucide-react'
 import Link from 'next/link'
 
 const Header = ({}) => {
+  const { hideControls } = useWheelSettings()
+
+  if (hideControls) return null
+
   return (
-    <header className="flex flex-row justify-between gap-5 px-8 py-5 max-lg:flex-col lg:items-center">
+    <header className="flex flex-row justify-between gap-5 max-lg:flex-col lg:items-center">
       <div className="flex flex-col">
         <Link href="/">
           <h1 className="text-2xl font-bold">randomlyspin.com</h1>
         </Link>
-        <div className="text-xs">The ultimate random choice generator</div>
       </div>
 
       <div className="flex flex-row items-center gap-5">
