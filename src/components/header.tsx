@@ -1,8 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
 import useWheelSettings from '@/hooks/useWheelSettings'
-import { Disc3Icon, FerrisWheelIcon, PartyPopperIcon } from 'lucide-react'
 import Link from 'next/link'
 
 const Header = ({}) => {
@@ -18,7 +16,7 @@ const Header = ({}) => {
         </Link>
       </div>
 
-      <div className="flex flex-row items-center gap-5">
+      {/* <div className="flex flex-row items-center gap-5">
         <h5 className="max-lg:hidden">select your mode 👉&nbsp;</h5>
         <Button
           className="h-10 w-10 rounded-full border-2 border-white bg-transparent"
@@ -34,7 +32,7 @@ const Header = ({}) => {
         <Button className="h-10 w-10 rounded-full" variant={'outline'}>
           <PartyPopperIcon />
         </Button>
-      </div>
+      </div> */}
     </header>
   )
 }
