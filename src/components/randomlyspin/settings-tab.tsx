@@ -1,35 +1,35 @@
-import { CircleUser, MusicIcon, PaletteIcon, SettingsIcon, CodeIcon } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
-import { Textarea } from '../ui/textarea';
-import { useEffect, useState } from 'react';
-import { Entry } from '@/models/entry';
-import useWheelSettings from '@/hooks/useWheelSettings';
-import { WheelStatus } from '@/models/wheel_status';
+import useWheelSettings from '@/hooks/useWheelSettings'
+import { Entry } from '@/models/entry'
+import { WheelStatus } from '@/models/wheel_status'
+import { CircleUser, CodeIcon, MusicIcon, PaletteIcon, SettingsIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
+import { Textarea } from '../ui/textarea'
 
 interface SettingsTabProps {
-  status?: WheelStatus | null;
+  status?: WheelStatus | null
 }
 
 const SettingsTab = ({ status }: SettingsTabProps) => {
-  const { entries, setEntries } = useWheelSettings();
+  const { entries, setEntries } = useWheelSettings()
 
-  const [tab, setTab] = useState('create');
-  const [quickTextEntry, setQuickTextEntry] = useState('Alex\nBob\nCharlie\nDavid\nEvan\nFrank');
+  const [tab, setTab] = useState('create')
+  const [quickTextEntry, setQuickTextEntry] = useState('Alex\nBob\nCharlie\nDavid\nEvan\nFrank')
 
   useEffect(() => {
     const processQuickChangeText = (text: string) => {
       const newEntries = text
         .split('\n')
         .filter((x) => x.trim().length > 0)
-        .map((line) => new Entry(line));
+        .map((line) => new Entry(line))
 
-      setEntries(newEntries);
-      setQuickTextEntry(text);
-    };
+      setEntries(newEntries)
+      setQuickTextEntry(text)
+    }
 
-    processQuickChangeText(quickTextEntry);
-  }, [quickTextEntry, setEntries]);
+    processQuickChangeText(quickTextEntry)
+  }, [quickTextEntry, setEntries])
 
   return (
     <div className="bg-opacity-10 rounded-lg bg-white p-5 shadow-lg backdrop-blur-lg backdrop-filter max-lg:w-full lg:w-[450px]">
@@ -103,7 +103,7 @@ const SettingsTab = ({ status }: SettingsTabProps) => {
         <TabsContent value="theme"></TabsContent>
       </Tabs>
     </div>
-  );
-};
+  )
+}
 
-export default SettingsTab;
+export default SettingsTab
