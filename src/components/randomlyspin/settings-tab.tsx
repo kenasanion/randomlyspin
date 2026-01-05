@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs'
 import { Textarea } from '../ui/textarea'
+import MusicControl from './music-control'
 
 interface SettingsTabProps {
   status?: WheelStatus | null
@@ -16,6 +17,10 @@ const SettingsTab = ({ status }: SettingsTabProps) => {
 
   const [tab, setTab] = useState('create')
   const [quickTextEntry, setQuickTextEntry] = useState('Alex\nBob\nCharlie\nDavid\nEvan\nFrank')
+
+  const onFileChange = (file: File) => {
+    console.log('Music file changed:', file.name)
+  }
 
   useEffect(() => {
     const processQuickChangeText = (text: string) => {
@@ -97,7 +102,9 @@ const SettingsTab = ({ status }: SettingsTabProps) => {
         <TabsContent value="music">
           <Card className="h-full border-none">
             <CardHeader>Music</CardHeader>
-            <CardContent></CardContent>
+            <CardContent>
+              <MusicControl onFileChange={onFileChange} />
+            </CardContent>
           </Card>
         </TabsContent>
         <TabsContent value="theme"></TabsContent>

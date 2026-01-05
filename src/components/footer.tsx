@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import useWheelSettings from '@/hooks/useWheelSettings'
-import { CoffeeIcon, InfoIcon } from 'lucide-react'
+import { InfoIcon } from 'lucide-react'
 
 const Footer = () => {
   const { hideControls } = useWheelSettings()
@@ -18,9 +18,9 @@ const Footer = () => {
         &copy; 2026 - Great Elf Archer™
       </p>
       <div className="flex flex-row gap-5">
-        <Button className="font-bold" aria-label="Support Me">
+        {/* <Button className="font-bold" aria-label="Support Me">
           <CoffeeIcon aria-hidden="true" /> Support Me
-        </Button>
+        </Button> */}
         <Button className="font-bold" aria-label="About">
           <InfoIcon aria-hidden="true" /> About
         </Button>

@@ -12,7 +12,10 @@ const Header = ({}) => {
     <header className="flex flex-row justify-between gap-5 max-lg:flex-col lg:items-center">
       <div className="flex flex-col">
         <Link href="/">
-          <h1 className="text-2xl font-bold">randomlyspin.com</h1>
+          <h1 className="flex flex-row items-center gap-3 text-2xl font-bold">
+            randomlyspin.com
+            <span className="rounded-xl bg-amber-400 p-2 text-xs">BETA</span>
+          </h1>
         </Link>
       </div>
 
